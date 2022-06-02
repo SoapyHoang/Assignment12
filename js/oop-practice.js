@@ -58,8 +58,8 @@
 //     get propertyList() {return [this.type, this.breed, this.color, this.height, this.length]};
 // }
 // animal6 = new Animal("dog", "Australian Shepherd", "Black", "15-inch", "50-inch");
-// for (i in animal4.propertyList) {
-//     console.log(animal4.propertyList[i]);
+// for (i in animal6.propertyList) {
+//     console.log(animal6.propertyList[i]);
 // }
 
 // STEP 7
