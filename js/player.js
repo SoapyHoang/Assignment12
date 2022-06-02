@@ -35,17 +35,28 @@ var jbox = new Jukebox();
 const album1 = new Album('Operation Ivy', 'Energy');
 const album2 = new Album('Blink 182', 'Dude Ranch');
 const album3 = new Album('New Found Glory', 'Sticks and Stones');
-
 jbox.addAlbum(album1);
 jbox.addAlbum(album2);
 jbox.addAlbum(album3);
 
-album1.play();
-album2.play();
-album2.play();
-album2.play();
-album2.play();
-album2.play();
-album3.play();
+// Create dropdown of albums
+var dropDown = document.getElementById("selectAlbum");
+for (const album of jbox.albums) {
+    var entry = document.createElement("option");
+    entry.textContent = `${album.title} by ${album.artist}`;
+    entry.value = album.title;
+    dropDown.appendChild(entry);
+}
 
-console.log(`Your favorite album is: ${jbox.favoriteAlbum()}`);
+function playAlbum() {
+    let title = document.getElementById("selectAlbum").value
+    for (const album of jbox.albums) {
+        if (album.title == title) {
+            album.play()
+        }
+    }
+}
+
+function showFavoriteAlbum() {
+    document.getElementById("favoriteAlbum").innerText = jbox.favoriteAlbum();
+}
